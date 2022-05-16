@@ -21,7 +21,7 @@
 <?php
 // session_start();
 
-include_once '"./config/connection.php"';
+include_once '../config/connection.php';
 
 if(isset($_POST['btn'])){
 
@@ -72,7 +72,7 @@ if(($loginEmail == "marwa@gmail.com") && ($loginPass == "Admin*1234")){
 }
 
 }
-
+}
 
 ?>
 
@@ -85,7 +85,7 @@ if(($loginEmail == "marwa@gmail.com") && ($loginPass == "Admin*1234")){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Login</title>
-    <style><?php include "sign-up.css" ?></style>
+    <style><?php include "../sign-up.css" ?></style>
     
 </head>
 <body>

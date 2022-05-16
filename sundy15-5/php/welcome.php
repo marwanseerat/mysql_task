@@ -1,6 +1,6 @@
 <?php
-session_start();
-
+// session_start();
+include_once '../config/connection.php';
 
 ?>
 
@@ -39,8 +39,23 @@ session_start();
 </head>
 <body>
 <div class="login-box1">
-        <h1> Welcome <?php echo  $_SESSION["user_fname"]. " ". $_SESSION["user_mname"] ." ".  $_SESSION["user_lname"] ." " .  $_SESSION["user_faname"]?>! </h1>
-        <h4> <b>your email is:</b> <?php echo "<p style='color:#ffee6f; font-size:30px;'>" . $_SESSION["userEmail"] . "</p>" ?> and your phone number is: <?php echo "<p style='color:blake; font-size:30px; '>" . $_SESSION["userMobile"] . "</p>" ?> </h4>
+
+<h1 class="text-center"> Welcome
+             <?php
+              $sql1="SELECT * FROM signupform";
+              $result= mysqli_query($con , $sql1);
+              $result_check= mysqli_num_rows($result);
+          
+              if ($result_check > 0) {
+                while ($row=mysqli_fetch_assoc($result)) {
+                  $row=mysqli_fetch_assoc($result);
+                 
+                   
+                echo  $row["first_name"]. " ". $row["middle_name"] ." ".  $row["last_name"]  ?> To Your Home Page! </h1>
+                <p class="text-center">  your email is: <?php "<p style='color:#ffee6f; font-size:30px;'>" . $row["email"] . "</p>"; ?>, and your phone number is: <?php "<p style='color:blake; font-size:30px; '>" . $row["phone_number"] . "</p>";}
+            }?> </p>
     </div>
 </body>
 </html>
+
+          
